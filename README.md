@@ -2,14 +2,14 @@
 
 Helper library for .NET MemoryCache with generics, easy initialization and deferred methods if key data is not found.
 
-You initialize the cache by instancing ISimpleMemoryCache. A SimpleMemoryCache implementation is provided with the following constructor:
+You initialize the cache by instancing *ISimpleMemoryCache*. A *SimpleMemoryCache* implementation is provided with the following constructor:
 
 ```C#
 public SimpleMemoryCache(
 						 CacheItemPolicy policy = null)
 ```
 
-**CacheItemPolicy** will default to a 5 minute absolute expiration caching time.
+**[CacheItemPolicy](https://msdn.microsoft.com/en-us/library/system.runtime.caching.cacheitempolicy(v=vs.110).aspx)** will default to a 5 minute absolute expiration caching time.
 
 # Method list
 
