@@ -2,6 +2,15 @@
 
 Helper library for .NET MemoryCache with generics, easy initialization and deferred methods if key data is not found.
 
+You initialize the cache by instancing ISimpleMemoryCache. A SimpleMemoryCache implementation is provided with the following constructor:
+
+```C#
+public SimpleMemoryCache(
+						 CacheItemPolicy policy = null)
+```
+
+**CacheItemPolicy** will default to a 5 minute absolute expiration caching time.
+
 # Method list
 
 ```C#
@@ -18,6 +27,39 @@ void Add<T>(string key, Func<T> dataFunc);
 void Remove(string key);
 
 void Clear();
+```
+
+# Sample usage
+```C#
+[Test]
+public void Given_no_cache_Then_add_object_cache_by_Get_Then_get_result()
+{
+	string key = "Given_no_cache_Then_add_object_cache_by_Get_Then_get_result";
+
+	string data = "data";
+
+	var result = _simpleMemoryCache.Get(
+										key, 
+										data);
+
+	Assert.True(data == result);
+}
+
+[Test]
+public void Given_no_cache_Then_add_method_cache_by_Get_Then_get_result()
+{
+	string key = "Given_no_cache_Then_add_method_cache_by_Get_Then_get_result";
+
+	Func<string> getData = () => "data";
+
+	string data = getData();
+
+	var result = _simpleMemoryCache.Get(
+										key, 
+										getData);
+
+	Assert.True(data == result);
+}
 ```
 
 # Todo
