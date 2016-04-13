@@ -60,6 +60,39 @@ public void Given_no_cache_Then_add_method_cache_by_Get_Then_get_result()
 
 	Assert.True(data == result);
 }
+
+[Test]
+public void Given_no_cache_Then_add_object_cache_by_Add_Then_get_result()
+{
+	string key = "Given_no_cache_Then_add_object_cache_by_Add_Then_get_result";
+
+	string data = "data";
+
+	_simpleMemoryCache.Add(
+						   key, 
+						   data);
+
+	var result = _simpleMemoryCache.Get<string>(
+												key);
+
+	Assert.True(data == result);
+}
+
+[Test]
+public void Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists()
+{
+	string key = "Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists";
+
+	string data = "data";
+
+	_simpleMemoryCache.Add(key, data);
+
+	_simpleMemoryCache.Clear();
+
+	var result = _simpleMemoryCache.Get<string>(key);
+
+	Assert.True(string.IsNullOrEmpty(result));
+}
 ```
 
 # Todo
