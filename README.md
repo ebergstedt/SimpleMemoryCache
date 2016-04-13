@@ -11,6 +11,10 @@ public SimpleMemoryCache(
 
 **[CacheItemPolicy](https://msdn.microsoft.com/en-us/library/system.runtime.caching.cacheitempolicy(v=vs.110).aspx)** will default to a 5 minute absolute expiration caching time.
 
+# [Nuget](https://www.nuget.org/packages/Ebergstedt.SimpleMemoryCache)
+
+	PM> Install-Package Ebergstedt.SimpleMemoryCache
+
 # Method list
 
 ```C#
