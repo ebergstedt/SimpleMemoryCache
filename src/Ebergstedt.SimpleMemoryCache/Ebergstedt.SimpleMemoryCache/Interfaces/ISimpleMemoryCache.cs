@@ -1,10 +1,13 @@
-# SimpleMemoryCache
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-Helper library for .NET MemoryCache with generics, easy initialization and deferred methods if key data is not found.
-
-# Method list
-
-```C#
+namespace Ebergstedt.SimpleMemoryCache.Interfaces
+{
+    public interface ISimpleMemoryCache
+    {
         T Get<T>(string key);
 
         T Get<T>(string key, T dataToAddToCacheIfCacheResultNotFound);
@@ -18,8 +21,5 @@ Helper library for .NET MemoryCache with generics, easy initialization and defer
         void Remove(string key);
 
         void Clear();
-```
-
-# Todo
-
-Nuget
+    }
+}
