@@ -102,7 +102,3 @@ public void Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists()
 	Assert.True(string.IsNullOrEmpty(result));
 }
 ```
-
-# Todo
-
-Nuget
