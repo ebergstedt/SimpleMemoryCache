@@ -35,7 +35,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
         [Test]
         public void Given_no_cache_Then_add_object_cache_by_Get_Then_get_result()
         {
-            string key = "Given_no_cache_Then_add_cache_Then_get_result";
+            string key = "Given_no_cache_Then_add_object_cache_by_Get_Then_get_result";
 
             string data = "data";
 
@@ -49,7 +49,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
         [Test]
         public void Given_no_cache_Then_add_method_cache_by_Get_Then_get_result()
         {
-            string key = "Given_no_cache_Then_add_cache_Then_get_result";
+            string key = "Given_no_cache_Then_add_method_cache_by_Get_Then_get_result";
 
             Func<string> getData = () => "data";
 
@@ -69,9 +69,12 @@ namespace Ebergstedt.SimpleMemoryCache.Test
 
             string data = "data";
 
-            _simpleMemoryCache.Add(key, data);
+            _simpleMemoryCache.Add(
+                                   key, 
+                                   data);
 
-            var result = _simpleMemoryCache.Get<string>(key);
+            var result = _simpleMemoryCache.Get<string>(
+                                                        key);
 
             Assert.True(data == result);
         }
@@ -85,11 +88,30 @@ namespace Ebergstedt.SimpleMemoryCache.Test
 
             string data = getData();
 
-            _simpleMemoryCache.Add(key, getData);
+            _simpleMemoryCache.Add(
+                                   key, 
+                                   getData);
+
+            var result = _simpleMemoryCache.Get<string>(
+                                                        key);
+
+            Assert.True(data == result);
+        }
+
+        [Test]
+        public void Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists()
+        {
+            string key = "Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists";
+
+            string data = "data";
+
+            _simpleMemoryCache.Add(key, data);
+
+            _simpleMemoryCache.Clear();
 
             var result = _simpleMemoryCache.Get<string>(key);
 
-            Assert.True(data == result);
+            Assert.True(string.IsNullOrEmpty(result));
         }
     }
 }

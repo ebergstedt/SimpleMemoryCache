@@ -11,14 +11,9 @@ namespace Ebergstedt.SimpleMemoryCache
         readonly CacheItemPolicy _policy;
 
         public SimpleMemoryCache(
-                                 ObjectCache cache = null,
                                  CacheItemPolicy policy = null)
         {
-            _cache = cache;
-            _policy = policy;
-
-            if (cache == null)
-                _cache = MemoryCache.Default;
+            _cache = MemoryCache.Default;
 
             if (policy == null)
                 _policy = new CacheItemPolicy()
