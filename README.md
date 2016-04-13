@@ -6,8 +6,10 @@ You initialize the cache by instancing *ISimpleMemoryCache*. A *SimpleMemoryCach
 
 ```C#
 public SimpleMemoryCache(
-						 CacheItemPolicy policy = null)
+						 CacheItemPolicy policy = null)						 					
 ```
+
+When using a MemoryCache, keep in mind that you are using your RAM with raw data. Caching big objects will take space, so be careful with using it frivolously.
 
 **[CacheItemPolicy](https://msdn.microsoft.com/en-us/library/system.runtime.caching.cacheitempolicy(v=vs.110).aspx)** will default to a 5 minute absolute expiration caching time.
 
