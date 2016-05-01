@@ -24,9 +24,9 @@ When using a MemoryCache, keep in mind that you are using your RAM with raw data
 ```C#
 T Get<T>(string key);
 
-T Get<T>(string key, T dataToAddToCacheIfCacheResultNotFound);
+T GetOrAdd<T>(string key, T dataToAddToCacheIfCacheResultNotFound);
 
-T Get<T>(string key, Func<T> funcResultToAddIfCacheNotFound = null);
+T GetOrAdd<T>(string key, Func<T> funcResultToAddIfCacheNotFound = null);
 
 void Add<T>(string key, T data);
 
@@ -46,7 +46,7 @@ public void Given_no_cache_Then_add_object_cache_by_Get_Then_get_result()
 
 	string data = "data";
 
-	var result = _simpleMemoryCache.Get(
+	var result = _simpleMemoryCache.GetOrAdd(
 										key, 
 										data);
 
@@ -62,7 +62,7 @@ public void Given_no_cache_Then_add_method_cache_by_Get_Then_get_result()
 
 	string data = getData();
 
-	var result = _simpleMemoryCache.Get(
+	var result = _simpleMemoryCache.GetOrAdd(
 										key, 
 										getData);
 
