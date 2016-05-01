@@ -47,8 +47,8 @@ public void Given_no_cache_Then_add_object_cache_by_Get_Then_get_result()
 	string data = "data";
 
 	var result = _simpleMemoryCache.GetOrAdd(
-										key, 
-										data);
+		key, 
+		data);
 
 	Assert.True(data == result);
 }
@@ -63,8 +63,8 @@ public void Given_no_cache_Then_add_method_cache_by_Get_Then_get_result()
 	string data = getData();
 
 	var result = _simpleMemoryCache.GetOrAdd(
-										key, 
-										getData);
+		key, 
+		getData);
 
 	Assert.True(data == result);
 }
@@ -77,11 +77,11 @@ public void Given_no_cache_Then_add_object_cache_by_Add_Then_get_result()
 	string data = "data";
 
 	_simpleMemoryCache.Add(
-						   key, 
-						   data);
+		key, 
+		data);
 
 	var result = _simpleMemoryCache.Get<string>(
-												key);
+		key);
 
 	Assert.True(data == result);
 }
