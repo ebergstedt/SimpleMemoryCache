@@ -10,9 +10,9 @@ namespace Ebergstedt.SimpleMemoryCache.Interfaces
     {
         T Get<T>(string key);
 
-        T Get<T>(string key, T dataToAddToCacheIfCacheResultNotFound);
+        T GetOrAdd<T>(string key, T dataToAddToCacheIfCacheResultNotFound);
 
-        T Get<T>(string key, Func<T> funcResultToAddIfCacheNotFound = null);
+        T GetOrAdd<T>(string key, Func<T> funcResultToAddIfCacheNotFound = null);
 
         void Add<T>(string key, T data);
 

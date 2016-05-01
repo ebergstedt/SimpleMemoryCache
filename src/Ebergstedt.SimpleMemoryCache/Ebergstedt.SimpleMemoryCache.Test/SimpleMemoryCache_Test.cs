@@ -26,7 +26,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
         {
             string key = "Given_no_cache_Then_get_no_result";
 
-            var cacheResult = _simpleMemoryCache.Get<object>(
+            var cacheResult = _simpleMemoryCache.GetOrAdd<object>(
                                                              key);
 
             Assert.Null(cacheResult);
@@ -39,7 +39,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
 
             string data = "data";
 
-            var result = _simpleMemoryCache.Get(
+            var result = _simpleMemoryCache.GetOrAdd(
                                                 key, 
                                                 data);
 
@@ -55,7 +55,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
 
             string data = getData();
 
-            var result = _simpleMemoryCache.Get(
+            var result = _simpleMemoryCache.GetOrAdd(
                                                 key, 
                                                 getData);
 
@@ -73,7 +73,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
                                    key, 
                                    data);
 
-            var result = _simpleMemoryCache.Get<string>(
+            var result = _simpleMemoryCache.GetOrAdd<string>(
                                                         key);
 
             Assert.True(data == result);
@@ -92,7 +92,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
                                    key, 
                                    getData);
 
-            var result = _simpleMemoryCache.Get<string>(
+            var result = _simpleMemoryCache.GetOrAdd<string>(
                                                         key);
 
             Assert.True(data == result);
@@ -109,7 +109,7 @@ namespace Ebergstedt.SimpleMemoryCache.Test
 
             _simpleMemoryCache.Clear();
 
-            var result = _simpleMemoryCache.Get<string>(key);
+            var result = _simpleMemoryCache.GetOrAdd<string>(key);
 
             Assert.True(string.IsNullOrEmpty(result));
         }
