@@ -93,7 +93,9 @@ public void Given_no_cache_Then_add_cache_Then_clear_it_Then_no_cache_exists()
 
 	string data = "data";
 
-	_simpleMemoryCache.Add(key, data);
+	_simpleMemoryCache.Add(
+		key, 
+		data);
 
 	_simpleMemoryCache.Clear();
 
