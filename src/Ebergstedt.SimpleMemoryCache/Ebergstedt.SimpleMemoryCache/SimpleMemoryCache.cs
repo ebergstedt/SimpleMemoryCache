@@ -16,6 +16,8 @@ namespace Ebergstedt.SimpleMemoryCache
         public SimpleMemoryCache(CacheItemPolicy policy = null)
         {
             _cache = MemoryCache.Default;
+            
+            _policy = policy;
 
             if (policy == null)
                 _policy = new CacheItemPolicy()
