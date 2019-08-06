@@ -13,8 +13,7 @@ namespace Ebergstedt.SimpleMemoryCache
         readonly CacheItemPolicy _policy;
         private static readonly ConcurrentDictionary<string, object> locks = new ConcurrentDictionary<string, object>();
 
-        public SimpleMemoryCache(
-                                 CacheItemPolicy policy = null)
+        public SimpleMemoryCache(CacheItemPolicy policy = null)
         {
             _cache = MemoryCache.Default;
 
